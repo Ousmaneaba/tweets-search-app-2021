@@ -9,6 +9,7 @@ pipeline{
         script{
           if(env.BRANCH_NAME == 'develop'){
             sh "git checkout -b release_${env.BUILD_NUMBER}"
+            sh "touch .release_${env.BUILD_NUMBER}"
             sh "git add ."
             sh "git commit -m \"release ${env.BUILD_NUMBER}\""
             withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
