@@ -8,7 +8,6 @@ pipeline{
             echo 'Currently on develop branch'
             echo env.git_cred
             echo git_cred
-            echo ${env.git_account}
             sh 'pwd'
             sh 'ls'
             sh 'git checkout -b jenkins-generated-branch-reretest'
