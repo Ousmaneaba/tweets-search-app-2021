@@ -1,11 +1,9 @@
-
 pipeline{
   agent any
   stages{
-    stage('Jenkins test 2'){
+    stage('Jenkins test'){
       steps {
         script{
-          ls
           echo 'Working'
         } 
       }
