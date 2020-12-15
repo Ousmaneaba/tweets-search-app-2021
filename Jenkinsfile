@@ -28,7 +28,10 @@ pipeline{
             echo "Merging release branch into master"
             sh "git checkout -f master"
             withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
-              sh("git merge release_${env.BUILD_NUMBER}")
+              sh("git pull release_${env.BUILD_NUMBER} https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git")
+            }
+            withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
+              sh("git push https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git")
             }
           }
           else{
