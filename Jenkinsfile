@@ -6,8 +6,8 @@ pipeline{
         script{
           if(env.BRANCH_NAME == 'develop'){
             echo 'Currently on develop branch'
-            echo env.git-cred
-            echo git-cred
+            echo env.git_cred
+            echo git_cred
             sh 'pwd'
             sh 'ls'
             sh 'git checkout -b jenkins-generated-branch-retest'
