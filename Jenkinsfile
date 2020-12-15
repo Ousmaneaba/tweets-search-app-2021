@@ -27,7 +27,7 @@ pipeline{
           if(env.WAS_RELEASED == '1'){
             echo "Merging release branch into master"
             git(
-              url: 'https://github.com/christophil/Pipeline_Build_AMI.git',
+              url: 'https://github.com/Ousmaneaba/tweets-search-app-2021.git',
               credentialsId: env.git_cred,
               branch: "master"
             )
