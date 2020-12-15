@@ -15,7 +15,7 @@ pipeline{
             sh 'git add .'
             sh 'git commit -m "test generated file"'
             withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
-              sh('git push https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git')
+              sh('git push https://Ousmaneaba:jenkinstest97@github.com/Ousmaneaba/tweets-search-app-2021.git')
             }
           }
         }
