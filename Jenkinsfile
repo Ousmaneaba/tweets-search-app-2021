@@ -10,7 +10,7 @@ pipeline{
             echo git_cred
             sh 'pwd'
             sh 'ls'
-            sh 'git checkout -b jenkins-generated-branch-reretest'
+            sh 'git checkout -b jenkins-generated-branch-first-test'
             sh 'touch generatedfile'
             sh 'git add .'
             sh 'git commit -m "test generated file"'
