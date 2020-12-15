@@ -8,14 +8,15 @@ pipeline{
             echo 'Currently on develop branch'
             echo env.git_cred
             echo git_cred
+            echo ${env.git_account}
             sh 'pwd'
             sh 'ls'
-            sh 'git checkout -b jenkins-generated-branch-retest'
+            sh 'git checkout -b jenkins-generated-branch-reretest'
             sh 'touch generatedfile'
             sh 'git add .'
             sh 'git commit -m "test generated file"'
-            withCredentials([usernamePassword(credentialsId: 'git-cred', passwordVariable: 'git-pwd', usernameVariable: 'git-account')]) {
-              sh('git push https://${git-account}:${git-password}@github.com/Ousmaneaba/tweets-search-app-2021.git')
+            withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
+              sh('git push https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git')
             }
           }
         }
