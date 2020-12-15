@@ -32,7 +32,7 @@ pipeline{
               branch: "master"
             )
             withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
-              sh("git pull release_${env.BUILD_NUMBER} https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git")
+              sh("git merge release_${env.BUILD_NUMBER}")
             }
             withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
               sh("git push https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git")
