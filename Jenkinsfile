@@ -8,7 +8,7 @@ pipeline{
       steps {
         script{
           if(env.BRANCH_NAME == 'develop'){
-            echo "Creating branch"
+            echo "Creating branch..."
             sh "git checkout -b release_${env.BUILD_NUMBER}"
             withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
               sh("git push https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git")
@@ -25,7 +25,7 @@ pipeline{
       steps {
         script{
           if(env.WAS_RELEASED == '1'){
-            echo "Merging release branch into master"
+            echo "Merging release branch into master..."
             git(
               url: 'https://github.com/Ousmaneaba/tweets-search-app-2021.git',
               credentialsId: env.git_cred,
