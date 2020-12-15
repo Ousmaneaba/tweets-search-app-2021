@@ -17,7 +17,7 @@ pipeline{
           }
           else{
             echo "Create release branch skipped"
-          ) 
+          } 
         }
       }
     }
