@@ -12,7 +12,9 @@ pipeline{
             sh 'touch generatedfile'
             sh 'git add .'
             sh 'git commit -m "test generated file"'
-            sh 'git push origin jenkins-generated-branch-test'
+            withCredentials([usernamePassword(credentialsId: 'git-cred', passwordVariable: 'git-pwd', usernameVariable: 'git-account')]) {
+              sh('git push https://${git-account}:${git-password}@github.com/Ousmaneaba/tweets-search-app-2021.git')
+            }
           }
         }
       }
