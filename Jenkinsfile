@@ -26,7 +26,11 @@ pipeline{
         script{
           if(env.WAS_RELEASED == '1'){
             echo "Merging release branch into master"
-            sh "git checkout -f master"
+            git(
+              url: 'https://github.com/christophil/Pipeline_Build_AMI.git',
+              credentialsId: env.git_cred,
+              branch: "master"
+            )
             withCredentials([usernamePassword(credentialsId: env.git_cred, passwordVariable: env.git_pwd, usernameVariable: env.git_account)]) {
               sh("git pull release_${env.BUILD_NUMBER} https://${env.git_account}:${env.git_pwd}@github.com/Ousmaneaba/tweets-search-app-2021.git")
             }
