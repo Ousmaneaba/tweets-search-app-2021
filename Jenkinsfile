@@ -1,7 +1,7 @@
 pipeline{
   agent any
-  environment {
-    WAS_RELEASED = '0'
+  parameters {
+    string(name: 'WAS_RELEASED', defaultValue: '0')
   }
   stages{
     stage('Create release branch'){
