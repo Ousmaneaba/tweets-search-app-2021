@@ -8,7 +8,7 @@ pipeline{
             echo 'Currently on develop branch'
             sh 'pwd'
             sh 'ls'
-            sh 'git checkout -b jenkins-generated-branch-test'
+            sh 'git checkout -b jenkins-generated-branch-retest'
             sh 'touch generatedfile'
             sh 'git add .'
             sh 'git commit -m "test generated file"'
