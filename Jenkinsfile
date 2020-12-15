@@ -19,7 +19,6 @@ pipeline{
             sh 'git commit -m "test generated file"'
             sh 'git push origin jenkins-generated-branch'
           }
-          echo 'test'
         }
       }
     }
