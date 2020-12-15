@@ -1,6 +1,11 @@
 pipeline{
   agent any
   stages{
+    stage('Clean workspace'){
+      steps {
+        cleanWS()
+      }
+    }
     stage('Jenkins test auto'){
       steps {
         script{
