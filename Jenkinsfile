@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('Jenkins test auto'){
       steps {
-        scripts {
+        script{
           if(env.BRANCH_NAME == 'develop'){
             echo 'Currently on develop branch'
             sh 'pwd'
